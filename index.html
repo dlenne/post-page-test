@@ -7,39 +7,86 @@
 </head>
 
 <body>
-    <h1>Trouve ton super pouvoir</h1>
-
+    <h1><span style="color: #0800C3;"><strong>Trouve ton super pouvoir 💪</strong></span></h1>
     <p>
-        <label>Je suis à l'aise pour:<input list="verbs" style="width: 200px; height: 30px;" name="myverb" /></label>
-        <datalist id="verbs">
+        <label>Je suis à l'aise pour:
+            <input list="userVerb" style="width: 200px; height: 30px;" placeholder="choisis ton verbe"
+                id="userVerbInput" /></label>
+        <datalist id="userVerb">
             <option value="Animer">
             <option value="Energiser">
             <option value="Créer">
             <option value="Concevoir">
             <option value="Mettre en oeuvre">
             <option value="Visualiser">
+            <option value="Programmer">
         </datalist>
 
-        <input type="text" style="width: 200px; height: 30px;" name="myText" value="quoi de manière spécifique">
 
-        <label>avec</label>
-    
+        <input type="text" style="width: 200px; height: 30px;" id="userInput" placeholder="✏️Entre le sujet">
 
-        <input type="text" style="width: 290px; height: 30px;" name="myText"
-            value="précise l'outil la méthode ou la pratique que tu utilises ">
+        <label>avec:<input list="prep" style="width: 200px; height: 30px;" name="myPrep" placeholder="Choisis ton moyen"
+                id="userPrepInput" /></label>
+        <datalist id="prep">
+            <option value="Avec la méthode">
+            <option value="Avec l'outil">
+            <option value="grâce à mon expérience de">
+        </datalist>
 
-        <label>Par exemple, j'ai</label>
-        <input type="text" style="width: 260px; height: 30px;" name="myText"
-            value="décris une situation ou un exemple inspirant !"> 
+        <input type="text" style="width: 300px; height: 30px;"
+            placeholder="✏️Entre le nom de l'outil, méthode ou expérience" id="userToolInput">
 
+        <br>
 
-        <p><I>Exemple de phrase complétée : Je suis à l'aise pour concevoir des programmes pédagogiques avec un système d'apprentissage entre pairs. Par exemple, j'ai conçu une expérience où 1300
+        <label>Par exemple, j'ai réussi à/on m'a félicité pour</label>
+        <input type="text" style="width: 350px; height: 30px;" id="userExampleInput"
+            placeholder="✏️Entre ton exemple (sois spécifique, il faut inspirer les autres !">
+
+        <p><I>Exemple de phrase complétée : Je suis à l'aise pour concevoir des programmes pédagogiques avec un
+                système d'apprentissage entre pairs. Par exemple, j'ai conçu une expérience où 1300
                 étudiants s'enseignent mutuellement leurs passions en moins de 2 jours.</I>
         </p>
 
+        <input type="submit" style="background: #0800C3;
+        color: white;
+        border-style: outset;
+        border-color: #FFFFFF;
+        height: 30px;
+        width: 100px;
+        font: bold 15px arial,sans-serif;
+        text-shadow: none;" class="button" onclick="showInput();"><br /><br />
 
+        <label><strong>Ton super pouvoir est: ... </strong></label>
+        <br />
+        <div>
+            <span id="userChoice"></span>
+            <span id="userMsg"></span>
+            <span id="userPrep"></span>
+            <span id="userTool"></span>
+            <span id="instructions"></span>
+            <span id="userExample"></span>
+
+
+        </div>
     </p>
 
+    <script language="JavaScript">
+        function showInput() {
+            document.getElementById("userMsg").innerHTML = document.getElementById('userInput').value
+
+            document.getElementById("userChoice").innerHTML = document.getElementById('userVerbInput').value
+
+            document.getElementById("userPrep").innerHTML = document.getElementById('userPrepInput').value
+
+            document.getElementById("userTool").innerHTML = document.getElementById('userToolInput').value
+
+            document.getElementById("instructions").innerHTML = ".Par exemple, j'ai "
+
+            document.getElementById("userExample").innerHTML = document.getElementById('userExampleInput').value
+
+
+        }
+    </script>
 </body>
 
 </html>
